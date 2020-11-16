@@ -108,7 +108,13 @@ function createContact() {
 // UC 3
 let addressBookArr = new Array();
 function addContact() {
-    addressBookArr.push(createContact());
+    let newContact = createContact();
+    if (checkDuplicate(newContact)) {
+        console.log("Contact already exists and hence this will not be added");
+        return;
+    } else {
+        addressBookArr.push(newContact);
+    }
 }
 while (true) {
     addContact();
@@ -167,3 +173,13 @@ function countContacts(length, Contact) {
     return length;
 }
 console.log("Number of contacts in array : " + addressBookArr.reduce(countContacts, 0));
+
+
+// UC 7
+function checkDuplicate(newContact) {
+    addressBookArr.forEach(contact => {
+        if ((contact.firstName + contact.lastName) == (newContact.firstName + newContact.lastName)) {
+            return true;
+        }
+    });
+}
