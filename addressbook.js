@@ -228,3 +228,16 @@ function countByState(state) {
 }
 let stateToCount = prompt("Enter state name to count contacts : ");
 console.log("Number of persons in " + stateToCount + " are : " + countByState(stateToCount));
+
+// UC 11
+function compareByName(contact1, contact2){
+    let c1 = (contact1.firstName + " " + contact1.lastName).toUpperCase();
+    let c2 = (contact2.firstName + " " + contact2.lastName).toUpperCase();
+    if(c1 > c2) return 1;
+    if(c1 < c2) return -1;
+}
+function sortByName(){
+    let sortedList = addressBookArr.sort(compareByName);
+    console.log(sortedList);
+}
+sortByName();
