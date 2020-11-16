@@ -183,3 +183,16 @@ function checkDuplicate(newContact) {
         }
     });
 }
+
+// UC 8 
+function searchPersonByCity(name, city) {
+    return addressBookArr.filter(contact => contact._city == city).filter(contact => (contact._firstName + " " + contact._lastName) == name);
+}
+let personByCity = searchPersonByCity(prompt("Enter name to search : "), prompt("Enter city : "));
+console.log("Persons in" + personByCity._city + " are: " + personByCity);
+
+function searchPersonByState(name, state) {
+    return addressBookArr.filter(contact => contact._state == state).filter(contact => (contact._firstName + " " + contact._lastName) == name);
+}
+let personByState = searchPersonByState(prompt("Enter name to search : "), prompt("Enter state : "));
+console.log("Persons in " + personByState._state + " are: " + personByState);
