@@ -216,3 +216,15 @@ function viewPersonsByState(state) {
 stateToSearch = prompt("Enter state name to view contacts: ");
 let personsByState = viewPersonsByStates(stateToSearch);
 console.log("All persons by " + state + " are : " + personsByState);
+
+// UC 10
+function countByCity(city) {
+    return addressBookArr.filter(contact => contact._city = city).reduce(countContacts, 0);
+}
+let cityToCount = prompt("Enter city name to count contacts : ");
+console.log("Number of persons in " + cityToCount + " are : " + countByCity(cityToCount));
+function countByState(state) {
+    return addressBookArr.filter(contact => contact._state = state).reduce(countContacts, 0);
+}
+let stateToCount = prompt("Enter state name to count contacts : ");
+console.log("Number of persons in " + stateToCount + " are : " + countByState(stateToCount));
