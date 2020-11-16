@@ -110,7 +110,12 @@ let addressBookArr = new Array();
 function addContact() {
     addressBookArr.push(createContact());
 }
-addContact();
+while (true) {
+    addContact();
+    let ask = prompt("Do you want to add one more contact?(y/n) : ");
+    if (ask != "y")
+        break;
+}
 console.log(addressBookArr);
 
 // UC 4
@@ -155,3 +160,10 @@ function deleteContact(personName) {
 let deleteName = prompt("Enter the person's full name to delete : ");
 deleteContact(deleteName);
 console.log(addressBookArr);
+
+// UC 6
+function countContacts(length, Contact) {
+    length++;
+    return length;
+}
+console.log("Number of contacts in array : " + addressBookArr.reduce(countContacts, 0));
