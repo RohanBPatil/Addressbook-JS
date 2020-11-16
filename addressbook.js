@@ -230,14 +230,47 @@ let stateToCount = prompt("Enter state name to count contacts : ");
 console.log("Number of persons in " + stateToCount + " are : " + countByState(stateToCount));
 
 // UC 11
-function compareByName(contact1, contact2){
-    let c1 = (contact1.firstName + " " + contact1.lastName).toUpperCase();
-    let c2 = (contact2.firstName + " " + contact2.lastName).toUpperCase();
-    if(c1 > c2) return 1;
-    if(c1 < c2) return -1;
+function compareByName(contact1, contact2) {
+    let c1 = (contact1._firstName + " " + contact1._lastName).toUpperCase();
+    let c2 = (contact2._firstName + " " + contact2._lastName).toUpperCase();
+    if (c1 > c2) return 1;
+    if (c1 < c2) return -1;
 }
-function sortByName(){
+function sortByName() {
     let sortedList = addressBookArr.sort(compareByName);
     console.log(sortedList);
 }
 sortByName();
+
+
+// UC 12
+function compareByState(contact1, contact2) {
+    let c1 = contact1._state;
+    let c2 = contact2._state;
+    return c1 - c2;
+}
+function sortByState() {
+    let sortedList = addressBookArr.sort(compareByState);
+    console.log(sortedList);
+}
+sortByState();
+function compareByCity(contact1, contact2) {
+    let c1 = contact1._city;
+    let c2 = contact2._city;
+    return c1 - c2;
+}
+function sortByState() {
+    let sortedList = addressBookArr.sort(compareByState);
+    console.log(sortedList);
+}
+sortByCity();
+function compareByZip(contact1, contact2) {
+    let c1 = contact1.zip;
+    let c2 = contact2.zip;
+    return c1 - c2;
+}
+function sortByZip() {
+    let sortedList = addressBookArr.sort(compareByZip);
+    console.log(sortedList);
+}
+sortByZip(); 
