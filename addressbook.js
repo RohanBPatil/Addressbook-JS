@@ -188,11 +188,31 @@ function checkDuplicate(newContact) {
 function searchPersonByCity(name, city) {
     return addressBookArr.filter(contact => contact._city == city).filter(contact => (contact._firstName + " " + contact._lastName) == name);
 }
-let personByCity = searchPersonByCity(prompt("Enter name to search : "), prompt("Enter city : "));
-console.log("Persons in" + personByCity._city + " are: " + personByCity);
+let nameToSearch = prompt("Enter name to search : ");
+let cityToSearch = prompt("Enter city name from which name to search: ");
+let personByCity = searchPersonByCity(nameToSearch, cityToSearch);
+console.log("Person in " + cityToSearch + " is: " + personByCity);
 
 function searchPersonByState(name, state) {
     return addressBookArr.filter(contact => contact._state == state).filter(contact => (contact._firstName + " " + contact._lastName) == name);
 }
-let personByState = searchPersonByState(prompt("Enter name to search : "), prompt("Enter state : "));
-console.log("Persons in " + personByState._state + " are: " + personByState);
+nameToSearch = prompt("Enter name to search : ");
+let stateToSearch = prompt("Enter state name from which name to search: ");
+let personByState = searchPersonByState(nameToSearch, stateToSearch);
+console.log("Person in " + stateToSearch + " is: " + personByState);
+
+// UC 9
+function viewPersonsByCity(city) {
+    let list = addressBookArr.filter(contact => contact.city == city);
+    return list;
+}
+cityToSearch = prompt("Enter city name to view contacts: ");
+let personsByCity = viewPersonsByCity(cityToSearch);
+console.log("All persons by " + cityToSearch + " are : " + personsByCity);
+
+function viewPersonsByState(state) {
+    return addressBookArr.filter(contact => contact._state == state);
+}
+stateToSearch = prompt("Enter state name to view contacts: ");
+let personsByState = viewPersonsByStates(stateToSearch);
+console.log("All persons by " + state + " are : " + personsByState);
