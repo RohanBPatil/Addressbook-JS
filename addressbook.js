@@ -112,3 +112,30 @@ function addContact() {
 }
 addContact();
 console.log(addressBookArr);
+
+// UC 4
+function editContact(personName) {
+    addressBookArr.forEach(contact => {
+        if ((contact._firstName + " " + contact._lastName) == (personName)) {
+            let choice = prompt("Enter choice\n1.Add new phone \n2.Add new email \n3.Exit ");
+            switch (parseInt(choice)) {
+                case 1:
+                    var phoneNumber = prompt("Enter new phone number : ");
+                    contact._phone = phoneNumber;
+                    break;
+                case 2:
+                    var emailId = prompt("Enter new email : ");
+                    contact._email = emailId;
+                    break;
+                case 3:
+                    return;
+                default:
+                    console.log("Enter correct choice");
+            }
+
+        }
+    });
+}
+let editName = prompt("Enter person's full name to edit contact : ");
+editContact(editName);
+console.log(addressBookArr);
