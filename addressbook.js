@@ -1,4 +1,4 @@
-//UC1:
+// UC 1
 var prompt = require('prompt-sync')();
 let nameRegex = RegExp('^[A-Z]{1}[a-z]{2,}$');
 let addressRegex = RegExp('^[A-Za-z0-9]{4,}$');
@@ -75,7 +75,7 @@ class Contact {
     }
     get email() { return this._email }
     set email(email) {
-        if (emailRegex.test(emailRegex)) {
+        if (emailRegex.test(email)) {
             this._email = email;
         } else {
             throw "Invalid Email";
@@ -86,18 +86,29 @@ class Contact {
             + " Zip: " + this.zip + " Phone: " + this.phone + " Email: " + this.email;
     }
 }
-let firstName = prompt("Enter first name: ");
-let lastName = prompt("Enter last name: ");
-let address = prompt("Enter the address: ");
-let city = prompt("Enter the city: ");
-let state = prompt("Enter the state: ");
-let zip = prompt("Enter the zip: ");
-let phone = prompt("Enter the phone: ");
-let email = prompt("Enter the email: ");
-
-try {
-    let contact = new Contact(firstName, lastName, address, city, state, zip, phone, email);
-    console.log(contact);
-} catch (e) {
-    console.log(e);
+function createContact() {
+    let firstName = prompt("Enter first name: ");
+    let lastName = prompt("Enter last name: ");
+    let address = prompt("Enter the address: ");
+    let city = prompt("Enter the city: ");
+    let state = prompt("Enter the state: ");
+    let zip = prompt("Enter the zip: ");
+    let phone = prompt("Enter the phone: ");
+    let email = prompt("Enter the email: ");
+    let contact;
+    try {
+        contact = new Contact(firstName, lastName, address, city, state, zip, phone, email);
+        console.log(contact);
+    } catch (e) {
+        console.log(e);
+    }
+    return contact;
 }
+
+// UC 3
+let addressBookArr = new Array();
+function addContact() {
+    addressBookArr.push(createContact());
+}
+addContact();
+console.log(addressBookArr);
